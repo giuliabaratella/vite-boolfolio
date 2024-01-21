@@ -1,6 +1,9 @@
 <template>
  <test/>
 <!-- <ul>
+  <li v-for="(project,id) in this.projects" :key="id">
+    {{ project.title }}
+  </li>
   <li v-for="(category,id) in this.categories" :key="id">
     {{ category.name }}
   </li>
@@ -32,7 +35,7 @@ import test from './components/TestComponent.vue';
     },
     methods:{
     getAllProjects(){
-      axios.get(store.apiUrl + "/projects", {params:{page: this.currentPage}}).then((resp)=>{
+      axios.get(store.apiUrl + this.store.endpoints.projects, {params:{page: this.currentPage}}).then((resp)=>{
         console.log(resp.data);
         this.projects = resp.data.results.data;
         this.currentPage = resp.data.results.current_page;
@@ -40,13 +43,13 @@ import test from './components/TestComponent.vue';
       })
     },
     getAllCategories(){
-      axios.get(store.apiUrl + "/categories").then((resp)=>{
+      axios.get(store.apiUrl + this.store.endpoints.categories).then((resp)=>{
         console.log(resp.data);
         this.categories = resp.data.results;
       })
     },
     getAllTechnologies(){
-      axios.get(store.apiUrl + "/technologies").then((resp)=>{
+      axios.get(store.apiUrl + this.store.endpoints.technologies).then((resp)=>{
         console.log(resp.data);
         this.technologies = resp.data.results;
       })
