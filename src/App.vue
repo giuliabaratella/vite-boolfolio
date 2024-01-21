@@ -1,6 +1,13 @@
 <template>
  <test/>
-
+<!-- <ul>
+  <li v-for="(category,id) in this.categories" :key="id">
+    {{ category.name }}
+  </li>
+  <li v-for="(technology,id) in this.technologies" :key="id">
+    {{ technology.name }}
+  </li>
+</ul>  -->
 
 </template>
 
@@ -17,6 +24,10 @@ import test from './components/TestComponent.vue';
       return{
         store,
         projects:[],
+        technologies:[],
+        categories:[],
+        currentPage: 1,
+        lastPage:0
       }
     },
     methods:{
@@ -28,9 +39,23 @@ import test from './components/TestComponent.vue';
         this.lastPage = resp.data.results.last_page;
       })
     },
+    getAllCategories(){
+      axios.get(store.apiUrl + "/categories").then((resp)=>{
+        console.log(resp.data);
+        this.categories = resp.data.results;
+      })
+    },
+    getAllTechnologies(){
+      axios.get(store.apiUrl + "/technologies").then((resp)=>{
+        console.log(resp.data);
+        this.technologies = resp.data.results;
+      })
+    },
   },
   mounted() {
     this.getAllProjects();
+    this.getAllCategories();
+    this.getAllTechnologies();
   }
   }
 </script>
