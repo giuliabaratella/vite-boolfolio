@@ -3,12 +3,20 @@
         <main class="container">
             <h1>Projects List</h1>
 
-                <div v-for="project in projects" :key="project.id" class="d-flex flex-column flex-lg-row mb-5">
+                <div v-for="project in projects" :key="project.id" class="row align-content-center align-items-center mb-5">
 
-                    <ProjectCard :project="project"/>
+                    <ProjectCard :project="project" class="col-12 col-lg-6"/>
 
-                    <div class="px-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quae perferendis reiciendis, provident laboriosam eius, reprehenderit magni sunt unde veritatis tempore doloremque ducimus quaerat quidem incidunt, ab soluta animi sit quia similique voluptatibus iste nisi temporibus ea! Cumque quod amet saepe asperiores, illum dolores quo nemo! Fugiat, adipisci nihil explicabo omnis alias impedit cupiditate tenetur quibusdam dicta iure in numquam quae sequi nesciunt asperiores, quod harum vero. Exercitationem voluptatem doloribus sed unde harum, sit reiciendis ut excepturi minus non facere! Culpa, vel ullam odio laborum voluptatem aspernatur voluptas, minima debitis dolores facilis commodi ad, aut maxime earum quia? Porro, nesciunt.
+                    <div class="col-12 col-lg-6">
+                        <div class="px-5">
+                            <p>{{ project.description }}</p>
+                            <button class="btn btn-primary">
+                                <router-link :to="{name: 'project', params:{ slug: project.slug }}" class="text-white">
+                                    <span class="me-2">See more</span>
+                                     <i class="fa-solid fa-arrow-right"></i>
+                                </router-link>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 

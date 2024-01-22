@@ -1,12 +1,12 @@
 <template>
     <div>
-<h1>Prova home</h1>
+        Contact me
     </div>
 </template>
 
 <script>
     export default {
-        
+        name: 'AppContacts',
     }
 </script>
 
