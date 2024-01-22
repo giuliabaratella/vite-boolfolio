@@ -1,23 +1,32 @@
 <template>
     <div>
-<h1>Projects List</h1>
-<ul>
-    <li v-for="project in this.projects" :key="project.id">
-        <router-link class="nav-link active" :to="{name: 'project', params:{ slug: project.slug }}">
-            {{ project.title }}
-        </router-link>
-    
-    </li>
-</ul>
+        <main class="container">
+            <h1>Projects List</h1>
+
+                <div v-for="project in projects" :key="project.id" class="d-flex flex-column flex-lg-row mb-5">
+
+                    <ProjectCard :project="project"/>
+
+                    <div class="px-5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quae perferendis reiciendis, provident laboriosam eius, reprehenderit magni sunt unde veritatis tempore doloremque ducimus quaerat quidem incidunt, ab soluta animi sit quia similique voluptatibus iste nisi temporibus ea! Cumque quod amet saepe asperiores, illum dolores quo nemo! Fugiat, adipisci nihil explicabo omnis alias impedit cupiditate tenetur quibusdam dicta iure in numquam quae sequi nesciunt asperiores, quod harum vero. Exercitationem voluptatem doloribus sed unde harum, sit reiciendis ut excepturi minus non facere! Culpa, vel ullam odio laborum voluptatem aspernatur voluptas, minima debitis dolores facilis commodi ad, aut maxime earum quia? Porro, nesciunt.
+                    </div>
+                </div>
+                
+        </main>
+
     </div>
 </template>
 
 <script>
 import {store} from "../data/store";
 import axios from "axios";
+import ProjectCard from '../components/ProjectCard.vue';
 
     export default {
         name:'AppProjects',
+        components:{
+            ProjectCard,
+        },
         data(){
             return{
                 store,

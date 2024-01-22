@@ -1,10 +1,24 @@
 <template>
 <div v-if="project">
-<h1>{{ project.title }}</h1>
-<div class="w-50">
-    <img :src="store.imgPath + project.image" :alt="project.title">
 
-</div>
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-3">
+            <h1 class="me-3">{{ project.title }}</h1>
+            <div class="category bg-warning">{{ project.category.name }}</div>
+        </div>
+        <div class="w-100 mb-3">
+            <img :src="store.imgPath + project.image" :alt="project.title">
+        </div>
+        <div class="d-flex column-gap-3 mb-3">
+
+            <div v-for="technology in project.technologies" class="tech-badge bg-success">
+                {{ technology.name }}
+            </div>
+        </div>
+
+    </div>
+    
+
 </div>
 </template>
 
@@ -39,5 +53,15 @@ import {store} from "../data/store";
 </script>
 
 <style lang="scss" scoped>
+.category{
+    border-radius: 20px;
+    padding: 0 10px;
+}
+.tech-badge{
+    // height: 50px;
+    // width: 50px;
+    border-radius: 30px;
 
+    padding: 15px 15px;
+}
 </style>
