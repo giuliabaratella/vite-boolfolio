@@ -1,5 +1,5 @@
 <template>
-
+<AppHeader></AppHeader>
 <router-view></router-view>
 
  
@@ -10,9 +10,11 @@ import axios from "axios";
 
 import {store} from "./data/store";
 import test from './components/TestComponent.vue';
+import AppHeader from './components/AppHeader.vue';
   export default {
     components:{
       test,
+      AppHeader,
     },
     data(){
       return{
