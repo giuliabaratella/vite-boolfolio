@@ -1,17 +1,8 @@
 <template>
- <test/>
-<!-- <ul>
-  <li v-for="(project,id) in this.projects" :key="id">
-    {{ project.title }}
-  </li>
-  <li v-for="(category,id) in this.categories" :key="id">
-    {{ category.name }}
-  </li>
-  <li v-for="(technology,id) in this.technologies" :key="id">
-    {{ technology.name }}
-  </li>
-</ul>  -->
 
+<router-view></router-view>
+
+ 
 </template>
 
 <script>
@@ -56,9 +47,9 @@ import test from './components/TestComponent.vue';
     },
   },
   mounted() {
-    this.getAllProjects();
-    this.getAllCategories();
-    this.getAllTechnologies();
+    // this.getAllProjects();
+    // this.getAllCategories();
+    // this.getAllTechnologies();
   }
   }
 </script>
