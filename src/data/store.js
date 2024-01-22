@@ -21,6 +21,61 @@ export const store = reactive({
          name:'whatsapp',
          icon:'fa-whatsapp'
       },
+   ],
+   codeSkills:[
+      {
+         name:'html',
+         icon:'fa-html5',
+      },
+      {
+         name:'css',
+         icon:'fa-css3-alt'
+      },
+      {
+         name:'sass',
+         icon:'fa-sass',
+      },
+      {
+         name:'javascript',
+         icon:'fa-js',
+      },
+      
+      {
+         name:'php',
+         icon:'fa-php',
+      },
+      {
+         name:'laravel',
+         icon:'fa-laravel'
+      },
+      {
+         name:'vue',
+         icon:'fa-vuejs'
+      },
+      {
+         name:'node.js',
+         icon:'fa-node',
+      },
+      {
+         name:'github',
+         icon:'fa-github',
+      },
+
+   ],
+   designSkills:[
+      {
+         name:'photoshop',
+         icon:'/img/design-icons/photoshop.png',
+      },
+      {
+         name:'illustrator',
+         icon:'/img/design-icons/illustrator.svg'
+      },
+      {
+         name:'indesign',
+         icon:'/img/design-icons/indesign.svg',
+      },
+
    ]
 
 });

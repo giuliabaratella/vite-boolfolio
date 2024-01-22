@@ -8,6 +8,9 @@ $fa-font-path: '../webfonts';
 
 @import 'bootstrap/scss/bootstrap';
 
+body{
+    font-size: 1.1em;
+}
 img{
     width:100%;
 }
@@ -16,4 +19,8 @@ a{
 }
 section{
     padding: 50px 0 50px 0;
+}
+
+h2{
+    font-size: 2.8em;
 }
