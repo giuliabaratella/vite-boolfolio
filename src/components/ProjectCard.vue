@@ -2,9 +2,9 @@
     <div class="card">
             <img class="card-img-top" :src="`${store.imgPath}${project.image}`" :alt="project.title">
             <div class="card-body">
-                   <div class="text-center">
-                    {{ project.title }}
-                   </div>
+                <div class="text-center">
+                {{ project.title }}
+                </div>
             </div>
     </div>
 </template>
