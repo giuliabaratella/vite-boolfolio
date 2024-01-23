@@ -1,6 +1,6 @@
 <template>
 <AppHeader></AppHeader>
-<router-view></router-view>
+<router-view :key="$route.path"></router-view>
 <AppFooter></AppFooter>
 
  
@@ -38,12 +38,7 @@ import AppFooter from './components/AppFooter.vue';
         this.lastPage = resp.data.results.last_page;
       })
     },
-    getAllCategories(){
-      axios.get(store.apiUrl + this.store.endpoints.categories).then((resp)=>{
-        console.log(resp.data);
-        this.categories = resp.data.results;
-      })
-    },
+  
     getAllTechnologies(){
       axios.get(store.apiUrl + this.store.endpoints.technologies).then((resp)=>{
         console.log(resp.data);

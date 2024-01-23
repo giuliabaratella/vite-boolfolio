@@ -15,6 +15,12 @@
                 {{ technology.name }}
             </div>
         </div>
+        <!-- <button class="btn btn-primary" >
+            <router-link :to="{name: 'project', params:{ slug: 'boolflix'}}" class="text-white">
+                <span class="me-2">Next Project</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+            </router-link>
+        </button> -->
 
     </main>
     
@@ -34,6 +40,7 @@ import {store} from "../data/store";
             }
         },
         methods:{
+
             getProjectData(){
                 axios.get(`${this.store.apiUrl}${this.store.endpoints.projects}/${this.$route.params.slug}`).then((resp)=>{
                 console.log(resp.data);
@@ -48,7 +55,15 @@ import {store} from "../data/store";
         },
         mounted(){
             this.getProjectData();
-        }
+
+            // this.$watch(() => this.$route.params, (toParams, previousParams) => {
+            //     if(toParams !== previousParams){
+            //         this.getProjectData();
+            //     }
+            // });
+        },
+        
+             
     }
 </script>
 

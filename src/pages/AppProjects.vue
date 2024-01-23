@@ -2,8 +2,12 @@
     <div>
         <main class="container">
             <h1>Projects List</h1>
-
-                <div v-for="project in projects" :key="project.id" class="row align-content-center align-items-center mb-5">
+            <select class="form-select mb-5" aria-label="Category filter" v-model="selectedCategory" @change="filterProjects()">
+                <option selected value="all">Choose a category</option>
+                <option v-for="category in store.categories" :value="category.id">{{ category.name }}</option>
+            </select>
+            
+                <div v-for="project in store.projects" :key="project.id" class="row align-content-center align-items-center mb-5">
 
                     <ProjectCard :project="project" class="col-12 col-lg-6"/>
 
@@ -38,23 +42,44 @@ import ProjectCard from '../components/ProjectCard.vue';
         data(){
             return{
                 store,
-                projects:[],
                 currentPage: 1,
-                lastPage:0
+                lastPage:0,
+                selectedCategory:'all',
             };
         }, 
         methods:{
-            getAllProjects(){
-            axios.get(store.apiUrl + this.store.endpoints.projects, {params:{page: this.currentPage}}).then((resp)=>{
+            getAllProjects(pageNum){
+            axios.get(store.apiUrl + this.store.endpoints.projects, {params:{page: pageNum}}).then((resp)=>{
                 console.log(resp.data);
-                this.projects = resp.data.results.data;
+                this.store.projects = resp.data.results.data;
                 this.currentPage = resp.data.results.current_page;
                 this.lastPage = resp.data.results.last_page;
                 })
             },
+            getAllCategories(){
+
+                axios.get(store.apiUrl + this.store.endpoints.categories).then((resp)=>{
+                console.log(resp.data);
+                this.store.categories = resp.data.results;
+                })
+            },
+            filterProjects(){
+                if(this.selectedCategory == "all"){
+                    this.getAllProjects(this.currentPage);
+                }else{
+                    // console.log(this.selectedCategory);
+                    axios.get(store.apiUrl + this.store.endpoints.projects, {params:{category: this.selectedCategory}}).then((resp)=>{
+                    this.store.projects = resp.data.results;
+                    })
+                }
+            }
+                
+               
+
         },
         mounted() {
-            this.getAllProjects();
+            this.filterProjects();
+            this.getAllCategories();
 
         }
     }
