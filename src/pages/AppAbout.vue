@@ -1,4 +1,5 @@
 <template>
+<HeroComponent/>
 <AboutComponent/>
 <SkillsComponent/>
 <ProjectsCarousel/>
@@ -10,12 +11,14 @@ import axios from "axios";
 import ProjectsCarousel from '@/components/ProjectsCarousel.vue';
 import AboutComponent from '@/components/AboutComponent.vue';
 import SkillsComponent from '@/components/SkillsComponent.vue';
+import HeroComponent from '@/components/HeroComponent.vue';
     export default {
         name:'AppAbout',
         components:{
             ProjectsCarousel,
             AboutComponent,
-            SkillsComponent
+            SkillsComponent,
+            HeroComponent,
         },
         data(){
             return{

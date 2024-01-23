@@ -2,7 +2,7 @@
 <nav class="navbar">
   <div class="container navbar-expand-lg">
     <div class="container-fluid d-flex justify-content-between ">
-      <div id="logo">GB Web Developer</div>
+      <div id="logo">GB</div>
       <div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -53,13 +53,15 @@
 @use '../assets/style/partials/variables' as *;
 
 nav{
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // z-index: 1000;
-  // width: 100%;
-  background-color: $color-tertiary;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  .container{
+    background-color: $color-secondary;
   color: $color-white;
+  border-radius: 30px;
   .active{
     color: $color-primary !important;
     font-weight: bold;
@@ -67,6 +69,8 @@ nav{
   .nav-link, #logo{
   font-size: 1.7em;
   color: $color-white;
+  }
+  
 
 }
 }

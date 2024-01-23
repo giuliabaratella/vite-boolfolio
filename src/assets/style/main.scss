@@ -8,8 +8,11 @@ $fa-font-path: '../webfonts';
 
 @import 'bootstrap/scss/bootstrap';
 
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&display=swap');
+
 body{
     font-size: 1.1em;
+    
 }
 img{
     width:100%;
@@ -20,7 +23,9 @@ a{
 section{
     padding: 50px 0 50px 0;
 }
-
+h1, h2, h3, h4, h5, .nav-link, .btn{
+    font-family: $font-title;
+}
 h2{
     font-size: 2.8em;
 }

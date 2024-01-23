@@ -61,5 +61,9 @@ import ProjectCard from '../components/ProjectCard.vue';
 </script>
 
 <style lang="scss" scoped>
+main{
+    margin-top: 150px;
 
+
+}
 </style>

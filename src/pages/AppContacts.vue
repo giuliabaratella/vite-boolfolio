@@ -1,7 +1,5 @@
 <template>
-    <div>
-        Contact me
-    </div>
+    <main class="container">Contact me</main>
 </template>
 
 <script>
@@ -11,5 +9,9 @@
 </script>
 
 <style lang="scss" scoped>
+main{
+    margin-top: 150px;
 
+
+}
 </style>

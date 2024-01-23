@@ -1,7 +1,7 @@
 <template>
 <div v-if="project">
 
-    <div class="container">
+    <main class="container">
         <div class="d-flex align-items-center justify-content-between py-3">
             <h1 class="me-3">{{ project.title }}</h1>
             <div class="category bg-warning">{{ project.category.name }}</div>
@@ -16,7 +16,7 @@
             </div>
         </div>
 
-    </div>
+    </main>
     
 
 </div>
@@ -53,7 +53,10 @@ import {store} from "../data/store";
 </script>
 
 <style lang="scss" scoped>
-.category{
+main{
+    margin-top: 150px;
+
+    .category{
     border-radius: 20px;
     padding: 0 10px;
 }
@@ -64,4 +67,6 @@ import {store} from "../data/store";
 
     padding: 15px 15px;
 }
+}
+
 </style>
