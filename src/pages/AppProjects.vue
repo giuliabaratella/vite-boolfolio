@@ -23,6 +23,22 @@
                         </div>
                     </div>
                 </div>
+
+
+                <nav aria-label="Page navigation" class="d-flex justify-content-center" v-if="selectedCategory == 'all' ">
+                    <ul class="pagination">
+                    <li class="page-item" :class="{disabled : currentPage === 1}">
+                        <button class="page-link" @click="getAllProjects(currentPage - 1)">Previous</button>
+                    </li>
+                    <li v-for="n in lastPage" class="page-item">
+                        <button class="page-link" @click="getAllProjects(n)">{{ n }}</button>
+                    </li>
+                    <li class="page-item" :class="{disabled : currentPage === lastPage}">
+                        <button class="page-link" @click="getAllProjects(currentPage + 1)">Next</button>
+                    </li>
+                    </ul>
+                </nav>
+
                 
         </main>
 
