@@ -1,11 +1,13 @@
 <template>
     <div>
         <main class="container">
-            <h1>Projects List</h1>
-            <select class="form-select mb-5" aria-label="Category filter" v-model="selectedCategory" @change="filterProjects()">
-                <option selected value="all">Choose a category</option>
-                <option v-for="category in store.categories" :value="category.id">{{ category.name }}</option>
-            </select>
+            <div class="d-flex justify-content-between">
+                <h1>Projects List</h1>
+                <select class="form-select mb-5 w-50" aria-label="Category filter" v-model="selectedCategory" @change="filterProjects()">
+                    <option selected value="all">Choose a category</option>
+                    <option v-for="category in store.categories" :value="category.id">{{ category.name }}</option>
+                </select>
+            </div>
             
                 <div v-for="project in store.projects" :key="project.id" class="row align-content-center align-items-center mb-5">
 

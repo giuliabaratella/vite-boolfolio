@@ -2,19 +2,24 @@
 <div v-if="project">
 
     <main class="container">
+
         <div class="d-flex align-items-center justify-content-between py-3">
             <h1 class="me-3">{{ project.title }}</h1>
             <div class="category bg-warning">{{ project.category.name }}</div>
         </div>
+
         <div class="w-100 mb-3">
             <img :src="store.imgPath + project.image" :alt="project.title">
         </div>
-        <div class="d-flex column-gap-3 mb-3">
 
-            <div v-for="technology in project.technologies" class="tech-badge bg-success">
-                {{ technology.name }}
+        <div v-if="project.technologies" class="d-flex column-gap-3 mb-3 align-items-baseline ">
+            <h3 class="me-3">Technologies:</h3>
+            <div v-for="technology in project.technologies" class="icon d-flex align-items-center justify-content-center">
+                <i class="fa-brands" :class="getIcons(technology.slug)"></i>
             </div>
         </div>
+
+        <p>{{ project.description }}</p>
         <!-- <button class="btn btn-primary" >
             <router-link :to="{name: 'project', params:{ slug: 'boolflix'}}" class="text-white">
                 <span class="me-2">Next Project</span>
@@ -50,7 +55,14 @@ import {store} from "../data/store";
                 }else{
                     this.$router.push({name: 'not-found'});
                 }
-            })  
+            })
+         },
+         getIcons(el){
+            for(let i = 0 ; i < this.store.codeSkills.length; i++){
+                if(this.store.codeSkills[i].name == el){
+                    return this.store.codeSkills[i].icon;
+                }
+            }
          }
         },
         mounted(){
@@ -68,6 +80,8 @@ import {store} from "../data/store";
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/style/partials/variables' as *;
+
 main{
     margin-top: 150px;
 
@@ -82,6 +96,26 @@ main{
 
     padding: 15px 15px;
 }
+.icon{
+    font-size: 2em;
+    width: 50px;
+    height: 50px;
+    color: $color-white;
+    background-color: $color-secondary;
+    border-radius: 50% 0 50% 0;
+    &:nth-child(4n){
+    background-color: $color-tertiary;
+    }
+    &:nth-child(4n-1){
+    background-color: $color-accent;
+    }
+    &:nth-child(4n+1){
+    background-color: $color-primary;
+    }
+    &:hover{
+        transform: scale(1.1);
+    }
+    }
 }
 
 </style>
